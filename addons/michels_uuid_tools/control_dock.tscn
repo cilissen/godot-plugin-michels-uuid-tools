@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcbpimkbfeqoh"]
+
+[ext_resource type="Script" uid="uid://cuegh5v1frl5k" path="res://addons/michels_uuid_tools/control_dock.gd" id="1_s7j1j"]
+
+[node name="UUID" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s7j1j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UUIDLineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+placeholder_text = "########-####-####-####-############"
+alignment = 1
+editable = false
+emoji_menu_enabled = false
+virtual_keyboard_enabled = false
+
+[node name="GenerateButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Generate"
+
+[node name="ClipboardButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Copy to clipboard"
+
+[node name="UniqueUUIDCheckBox" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+button_pressed = true
+text = "Unique UUID"
+
+[node name="CopyToClipboardCheckBox" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+button_pressed = true
+text = "Copy To Clipboard on Generation"
+
+[connection signal="pressed" from="VBoxContainer/GenerateButton" to="." method="_on_generate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ClipboardButton" to="." method="_on_clipboard_button_pressed"]

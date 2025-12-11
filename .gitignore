@@ -1,0 +1,9 @@
+*
+!/addons/
+!/addons/**
+!.gitattributes
+!.gitignore
+!LICENSE.md
+!README.md
+*.uid
+addons/michels_uuid_tools/uuid_history.txt
