@@ -58,17 +58,13 @@ static func _load_from_file(path:String) -> String:
 
 ## Private function to save a variant to a file.
 static func _save_dat_var(path:String, value:Variant) -> void:
-	# Make the directory where the file will be saved if that directory doesn't exist yet
-	if not DirAccess.dir_exists_absolute(path.get_basename()):
-		DirAccess.make_dir_recursive_absolute(path.get_basename())
 	var file:Object = FileAccess.open(path, FileAccess.WRITE)
 	file.store_var(value)
 
 ## Private function to load a variant from a file.
 static func _load_dat_var(path:String) -> Variant:
 	var file:Object = FileAccess.open(path, FileAccess.READ)
-	var result:Variant = file.get_var()
-	return result
+	return file.get_var()
 
 ## Private function to load the history from the file in the plugin folder and 
 ## the file in persistent user data.
